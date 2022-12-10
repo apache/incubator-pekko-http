@@ -7,7 +7,7 @@ package akka.http.scaladsl.model
 import akka.annotation.InternalApi
 
 import scala.util.{ Failure, Success }
-import akka.parboiled2.ParseError
+import org.parboiled2.ParseError
 import akka.http.impl.util.ToStringRenderable
 import akka.http.impl.model.parser.{ CharacterClasses, HeaderParser }
 import akka.http.javadsl.{ model => jm }
@@ -77,7 +77,7 @@ object HttpHeader {
   def parse(
       name: String, value: String, settings: HeaderParser.Settings = HeaderParser.DefaultSettings): ParsingResult =
     if (name.forall(c => CharacterClasses.tchar(c))) {
-      import akka.parboiled2.Parser.DeliveryScheme.Try
+      import org.parboiled2.Parser.DeliveryScheme.Try
       val parser = new HeaderParser(value, settings)
       parser.`header-field-value`.run() match {
         case Success(preProcessedValue) =>

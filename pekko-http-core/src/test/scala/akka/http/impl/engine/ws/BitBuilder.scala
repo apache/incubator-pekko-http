@@ -7,7 +7,7 @@ package akka.http.impl.engine.ws
 import scala.annotation.tailrec
 import scala.util.{ Failure, Success, Try }
 import akka.util.ByteString
-import akka.parboiled2
+import org.parboiled2
 import parboiled2._
 
 object BitBuilder {

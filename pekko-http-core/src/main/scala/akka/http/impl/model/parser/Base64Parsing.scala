@@ -17,8 +17,8 @@
 package akka.http.impl.model.parser
 
 import akka.annotation.InternalApi
-import akka.parboiled2.util.Base64
-import akka.parboiled2._
+import org.parboiled2.util.Base64
+import org.parboiled2._
 
 /**
  * INTERNAL API

@@ -8,7 +8,7 @@ import java.nio.charset.Charset
 import java.net.InetAddress
 import akka.http.impl.util.StringRendering
 import org.scalatest.matchers.{ MatchResult, Matcher }
-import akka.parboiled2.UTF8
+import org.parboiled2.UTF8
 import Uri._
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
@@ -360,13 +360,13 @@ class UriSpec extends AnyWordSpec with Matchers {
       // #query-strict-mode-exception-1
       the[IllegalUriException] thrownBy strict("a^=b") shouldBe {
         IllegalUriException(
-          "Illegal query: Invalid input '^', expected '+', '=', query-char, 'EOI', '&' or pct-encoded (line 1, column 2)",
+          "Illegal query: Invalid input '^', expected '+', query-char, pct-encoded, '=', '&' or 'EOI' (line 1, column 2)",
           "a^=b\n" +
           " ^")
       }
       the[IllegalUriException] thrownBy strict("a;=b") shouldBe {
         IllegalUriException(
-          "Illegal query: Invalid input ';', expected '+', '=', query-char, 'EOI', '&' or pct-encoded (line 1, column 2)",
+          "Illegal query: Invalid input ';', expected '+', query-char, pct-encoded, '=', '&' or 'EOI' (line 1, column 2)",
           "a;=b\n" +
           " ^")
       }
@@ -376,7 +376,7 @@ class UriSpec extends AnyWordSpec with Matchers {
       // double '=' in query string is invalid
       the[IllegalUriException] thrownBy strict("a=b=c") shouldBe {
         IllegalUriException(
-          "Illegal query: Invalid input '=', expected '+', query-char, 'EOI', '&' or pct-encoded (line 1, column 4)",
+          "Illegal query: Invalid input '=', expected '+', query-char, pct-encoded, '&' or 'EOI' (line 1, column 4)",
           "a=b=c\n" +
           "   ^")
       }
@@ -645,7 +645,7 @@ class UriSpec extends AnyWordSpec with Matchers {
       // illegal scheme
       the[IllegalUriException] thrownBy Uri("foö:/a") shouldBe {
         IllegalUriException(
-          "Illegal URI reference: Invalid input 'ö', expected scheme-char, 'EOI', '#', ':', '?', slashSegments or pchar (line 1, column 3)",
+          "Illegal URI reference: Invalid input 'ö', expected scheme-char, ':', pchar, slashSegments, '?', '#' or 'EOI' (line 1, column 3)",
           "foö:/a\n" +
           "  ^")
       }
@@ -692,7 +692,7 @@ class UriSpec extends AnyWordSpec with Matchers {
       // illegal path
       the[IllegalUriException] thrownBy Uri("http://www.example.com/name with spaces/") shouldBe {
         IllegalUriException(
-          "Illegal URI reference: Invalid input ' ', expected '/', 'EOI', '#', '?' or pchar (line 1, column 28)",
+          "Illegal URI reference: Invalid input ' ', expected pchar, '/', '?', '#' or 'EOI' (line 1, column 28)",
           "http://www.example.com/name with spaces/\n" +
           "                           ^")
       }
@@ -700,7 +700,7 @@ class UriSpec extends AnyWordSpec with Matchers {
       // illegal path with control character
       the[IllegalUriException] thrownBy Uri("http:///with\newline") shouldBe {
         IllegalUriException(
-          "Illegal URI reference: Invalid input '\\n', expected '/', 'EOI', '#', '?' or pchar (line 1, column 13)",
+          "Illegal URI reference: Invalid input '\\n', expected pchar, '/', '?', '#' or 'EOI' (line 1, column 13)",
           "http:///with\n" +
           "            ^")
       }

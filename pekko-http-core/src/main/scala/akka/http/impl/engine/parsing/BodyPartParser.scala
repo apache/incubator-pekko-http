@@ -9,7 +9,7 @@ import akka.annotation.InternalApi
 
 import scala.annotation.tailrec
 import akka.event.LoggingAdapter
-import akka.parboiled2.CharPredicate
+import org.parboiled2.CharPredicate
 import akka.stream.scaladsl.Source
 import akka.stream.stage._
 import akka.util.ByteString

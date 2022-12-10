@@ -19,7 +19,7 @@ import ParserOutput._
 import akka.annotation.InternalApi
 import akka.http.impl.engine.server.HttpAttributes
 import akka.http.impl.util.ByteStringParserInput
-import akka.parboiled2.ParserInput
+import org.parboiled2.ParserInput
 import akka.stream.{ Attributes, FlowShape, Inlet, Outlet }
 import akka.stream.TLSProtocol.SessionBytes
 import akka.stream.stage.{ GraphStage, GraphStageLogic, InHandler, OutHandler }

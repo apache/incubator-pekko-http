@@ -5,7 +5,7 @@
 package akka.http.impl.engine.rendering
 
 import akka.annotation.InternalApi
-import akka.parboiled2.CharUtils
+import org.parboiled2.CharUtils
 import akka.stream.{ Attributes, SourceShape }
 import akka.util.ByteString
 import akka.event.LoggingAdapter

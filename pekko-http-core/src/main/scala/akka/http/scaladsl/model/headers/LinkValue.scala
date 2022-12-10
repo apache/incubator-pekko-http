@@ -5,7 +5,7 @@
 package akka.http.scaladsl.model.headers
 
 import scala.collection.immutable
-import akka.parboiled2.CharPredicate
+import org.parboiled2.CharPredicate
 import akka.http.impl.util._
 import akka.http.scaladsl.model._
 import akka.http.javadsl.{ model => jm }

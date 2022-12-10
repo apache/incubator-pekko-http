@@ -4,7 +4,7 @@
 
 package akka.http.impl.engine.rendering
 
-import akka.parboiled2.util.Base64
+import org.parboiled2.util.Base64
 
 import scala.collection.immutable
 import akka.event.LoggingAdapter

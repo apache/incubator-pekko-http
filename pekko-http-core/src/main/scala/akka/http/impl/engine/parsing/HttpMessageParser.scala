@@ -10,7 +10,7 @@ import akka.stream.TLSProtocol._
 
 import scala.annotation.tailrec
 import scala.collection.mutable.ListBuffer
-import akka.parboiled2.CharUtils
+import org.parboiled2.CharUtils
 import akka.util.ByteString
 import akka.http.impl.model.parser.CharacterClasses
 import akka.http.scaladsl.settings.ParserSettings

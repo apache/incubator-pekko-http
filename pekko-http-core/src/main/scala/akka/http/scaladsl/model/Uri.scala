@@ -12,7 +12,7 @@ import java.nio.charset.Charset
 import scala.annotation.tailrec
 import scala.collection.{ immutable, mutable }
 import akka.annotation.DoNotInherit
-import akka.parboiled2.{ CharPredicate, CharUtils, ParserInput }
+import org.parboiled2.{ CharPredicate, CharUtils, ParserInput }
 import akka.http.ccompat.{ Builder, QuerySeqOptimized }
 import akka.http.javadsl.{ model => jm }
 import akka.http.impl.model.parser.UriParser

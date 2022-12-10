@@ -19,7 +19,7 @@ import scala.collection.immutable
 import scala.reflect.{ classTag, ClassTag }
 import akka.Done
 import akka.actor.ClassicActorSystemProvider
-import akka.parboiled2.CharUtils
+import org.parboiled2.CharUtils
 import akka.util.{ ByteString, HashCode, OptionVal }
 import akka.http.ccompat.{ pre213, since213 }
 import akka.http.impl.util._

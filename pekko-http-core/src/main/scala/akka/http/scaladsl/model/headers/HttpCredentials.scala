@@ -4,7 +4,7 @@
 
 package akka.http.scaladsl.model.headers
 
-import akka.parboiled2.util.Base64
+import org.parboiled2.util.Base64
 import akka.http.scaladsl.model.HttpCharsets._
 import akka.http.impl.util.{ Rendering, ValueRenderable }
 import akka.http.javadsl.{ model => jm }
@@ -34,7 +34,7 @@ final case class BasicHttpCredentials(username: String, password: String) extend
 
 object BasicHttpCredentials {
   def apply(credentials: String): BasicHttpCredentials = {
-    val bytes = Base64.rfc2045.decodeFast(credentials)
+    val bytes = Base64.rfc2045.decodeFast(credentials.toCharArray)
     val userPass = new String(bytes, `UTF-8`.nioCharset)
     userPass.indexOf(':') match {
       case -1 => apply(userPass, "")

@@ -9,7 +9,7 @@ import akka.http.impl.util.JavaMapping.Implicits._
 import akka.http.impl.util._
 import akka.http.javadsl.{ model => jm }
 import akka.http.scaladsl.model.Uri
-import akka.parboiled2.UTF8
+import org.parboiled2.UTF8
 
 import scala.collection.immutable
 import scala.language.implicitConversions

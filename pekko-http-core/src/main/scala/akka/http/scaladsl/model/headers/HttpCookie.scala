@@ -5,7 +5,7 @@
 package akka.http.scaladsl.model.headers
 
 import akka.http.impl.model.parser.CharacterClasses
-import akka.parboiled2.CharPredicate
+import org.parboiled2.CharPredicate
 import java.util.{ Optional, OptionalLong }
 
 import akka.http.scaladsl.model.DateTime
