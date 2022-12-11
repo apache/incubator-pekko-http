@@ -12,10 +12,10 @@ import akka.annotation.InternalApi
 
 import scala.annotation.tailrec
 import scala.collection.{ immutable, LinearSeq }
-import org.parboiled2.{ CharPredicate, CharUtils }
 import akka.http.impl.model.parser.CharacterClasses
 import akka.http.scaladsl.model.HttpHeader
 import akka.util.{ ByteString, ByteStringBuilder }
+import org.parboiled2.{ CharPredicate, CharUtils }
 
 /**
  * INTERNAL API

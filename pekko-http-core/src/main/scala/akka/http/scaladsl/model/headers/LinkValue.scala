@@ -5,13 +5,13 @@
 package akka.http.scaladsl.model.headers
 
 import scala.collection.immutable
-import org.parboiled2.CharPredicate
 import akka.http.impl.util._
 import akka.http.scaladsl.model._
 import akka.http.javadsl.{ model => jm }
 import akka.http.impl.util.JavaMapping.Implicits._
 import UriRendering.UriRenderer
 import akka.http.ccompat.{ pre213, since213 }
+import org.parboiled2.CharPredicate
 
 final case class LinkValue(uri: Uri, params: immutable.Seq[LinkParam]) extends jm.headers.LinkValue
     with ValueRenderable {

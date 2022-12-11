@@ -6,13 +6,13 @@ package akka.http.impl.model.parser
 
 import java.nio.charset.Charset
 
-import org.parboiled2._
 import akka.http.impl.util.{ enhanceString_, StringRendering }
 import akka.http.scaladsl.model.{ Uri, UriRendering }
 import akka.http.scaladsl.model.headers.HttpOrigin
-import Parser.DeliveryScheme.Either
 import Uri._
 import akka.annotation.InternalApi
+import org.parboiled2._
+import Parser.DeliveryScheme.Either
 
 /**
  * INTERNAL API

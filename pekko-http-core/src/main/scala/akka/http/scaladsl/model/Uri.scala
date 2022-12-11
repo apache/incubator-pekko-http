@@ -12,13 +12,13 @@ import java.nio.charset.Charset
 import scala.annotation.tailrec
 import scala.collection.{ immutable, mutable }
 import akka.annotation.DoNotInherit
-import org.parboiled2.{ CharPredicate, CharUtils, ParserInput }
 import akka.http.ccompat.{ Builder, QuerySeqOptimized }
 import akka.http.javadsl.{ model => jm }
 import akka.http.impl.model.parser.UriParser
 import akka.http.impl.model.parser.CharacterClasses._
 import akka.http.impl.util._
 import Uri._
+import org.parboiled2.{ CharPredicate, CharUtils, ParserInput }
 
 /**
  * An immutable model of an internet URI as defined by https://tools.ietf.org/html/rfc3986.

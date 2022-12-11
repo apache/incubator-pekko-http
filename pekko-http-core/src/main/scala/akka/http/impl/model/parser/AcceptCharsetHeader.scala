@@ -4,9 +4,9 @@
 
 package akka.http.impl.model.parser
 
-import org.parboiled2.Parser
 import akka.http.scaladsl.model.headers.`Accept-Charset`
 import akka.http.scaladsl.model.HttpCharsetRange
+import org.parboiled2.Parser
 
 private[parser] trait AcceptCharsetHeader { this: Parser with CommonRules with CommonActions =>
 

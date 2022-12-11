@@ -18,7 +18,6 @@ import akka.http.scaladsl.settings.ParserSettings.ErrorLoggingVerbosity
 import akka.http.scaladsl.settings.ParserSettings
 
 import scala.annotation.tailrec
-import org.parboiled2.CharUtils
 import akka.util.ByteString
 import akka.http.ccompat._
 import akka.http.impl.util._
@@ -26,6 +25,7 @@ import akka.http.scaladsl.model.{ ErrorInfo, HttpHeader, MediaTypes, StatusCode,
 import akka.http.scaladsl.model.headers.{ EmptyHeader, RawHeader }
 import akka.http.impl.model.parser.HeaderParser
 import akka.http.impl.model.parser.CharacterClasses._
+import org.parboiled2.CharUtils
 
 /**
  * INTERNAL API

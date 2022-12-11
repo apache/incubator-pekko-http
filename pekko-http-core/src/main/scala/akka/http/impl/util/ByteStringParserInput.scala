@@ -7,8 +7,8 @@ package akka.http.impl.util
 import java.nio.charset.StandardCharsets
 
 import akka.annotation.InternalApi
-import org.parboiled2.ParserInput.DefaultParserInput
 import akka.util.ByteString
+import org.parboiled2.ParserInput.DefaultParserInput
 
 /**
  * ParserInput reading directly off a ByteString. (Based on the ByteArrayBasedParserInput)

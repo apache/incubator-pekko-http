@@ -7,12 +7,12 @@ package akka.http.scaladsl.model
 import akka.annotation.InternalApi
 
 import scala.util.{ Failure, Success }
-import org.parboiled2.ParseError
 import akka.http.impl.util.ToStringRenderable
 import akka.http.impl.model.parser.{ CharacterClasses, HeaderParser }
 import akka.http.javadsl.{ model => jm }
 import akka.http.scaladsl.model.headers._
 import akka.util.OptionVal
+import org.parboiled2.ParseError
 
 import scala.collection.immutable
 

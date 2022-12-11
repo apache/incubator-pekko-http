@@ -16,9 +16,9 @@ import akka.util.ConstantFun
 
 import scala.util.control.NonFatal
 import akka.http.impl.util.SingletonException
+import akka.http.scaladsl.model._
 import org.parboiled2._
 import org.parboiled2.support.hlist._
-import akka.http.scaladsl.model._
 
 /**
  * INTERNAL API.
@@ -108,12 +108,13 @@ private[http] object HeaderParser {
 
   object EmptyCookieException extends SingletonException("Cookie header contained no parsable cookie values.")
 
-  def lookupParser(headerName: String, settings: Settings = DefaultSettings): String => HeaderParser#Result = { (value: String) =>
+  def lookupParser(
+      headerName: String, settings: Settings = DefaultSettings): String => HeaderParser#Result = { (value: String) =>
     import org.parboiled2.EOI
     val v = value + EOI
     val parser = new HeaderParser(v, settings)
     dispatch(parser, headerName) match {
-      case r@Success(_) if parser.cursor == v.length => r
+      case r @ Success(_) if parser.cursor == v.length => r
       case Success(_) =>
         Failure(ErrorInfo(
           "Header parsing error",

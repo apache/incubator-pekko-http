@@ -8,7 +8,7 @@ import scala.annotation.tailrec
 import scala.util.{ Failure, Success, Try }
 import akka.util.ByteString
 import org.parboiled2
-import parboiled2._
+import org.parboiled2._
 
 object BitBuilder {
   implicit class BitBuilderContext(val ctx: StringContext) {

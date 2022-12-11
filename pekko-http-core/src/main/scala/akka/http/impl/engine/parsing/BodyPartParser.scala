@@ -9,7 +9,6 @@ import akka.annotation.InternalApi
 
 import scala.annotation.tailrec
 import akka.event.LoggingAdapter
-import org.parboiled2.CharPredicate
 import akka.stream.scaladsl.Source
 import akka.stream.stage._
 import akka.util.ByteString
@@ -17,6 +16,7 @@ import akka.http.scaladsl.model._
 import akka.http.impl.util._
 import akka.stream.{ Attributes, FlowShape, Inlet, Outlet }
 import headers._
+import org.parboiled2.CharPredicate
 
 import scala.collection.mutable.ListBuffer
 

@@ -4,8 +4,8 @@
 
 package akka.http.impl.model.parser
 
-import org.parboiled2.Parser
 import akka.http.scaladsl.model.headers._
+import org.parboiled2.Parser
 
 private[parser] trait AcceptEncodingHeader { this: Parser with CommonRules with CommonActions =>
 

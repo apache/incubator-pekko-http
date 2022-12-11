@@ -18,13 +18,13 @@ import scala.reflect.ClassTag
 import scala.util.{ Failure, Success, Try }
 import scala.annotation.tailrec
 import scala.collection.immutable
-import org.parboiled2.util.Base64
 import akka.event.Logging
 import akka.http.ccompat.{ pre213, since213 }
 import akka.http.impl.util._
 import akka.http.impl.model.parser.CharacterClasses.`attr-char`
 import akka.http.javadsl.{ model => jm }
 import akka.http.scaladsl.model._
+import org.parboiled2.util.Base64
 
 sealed abstract class ModeledCompanion[T: ClassTag] extends Renderable {
   val name = ModeledCompanion.nameFromClass(getClass)
