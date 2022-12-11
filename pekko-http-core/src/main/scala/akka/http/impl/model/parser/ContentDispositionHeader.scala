@@ -6,13 +6,13 @@ package akka.http.impl.model.parser
 
 import scala.collection.immutable.TreeMap
 
-import akka.parboiled2.Parser
 import akka.http.scaladsl.model.headers._
 import akka.http.impl.util.ISO88591
 import akka.http.impl.util.UTF8
 import akka.http.impl.model.parser.CharacterClasses.`attr-char`
 import akka.http.impl.model.parser.CharacterClasses.HEXDIG
 import akka.http.scaladsl.model.Uri
+import org.parboiled2.Parser
 
 import java.nio.charset.Charset
 

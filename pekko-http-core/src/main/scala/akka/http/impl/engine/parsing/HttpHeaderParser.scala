@@ -18,7 +18,6 @@ import akka.http.scaladsl.settings.ParserSettings.ErrorLoggingVerbosity
 import akka.http.scaladsl.settings.ParserSettings
 
 import scala.annotation.tailrec
-import akka.parboiled2.CharUtils
 import akka.util.ByteString
 import akka.http.ccompat._
 import akka.http.impl.util._
@@ -26,6 +25,7 @@ import akka.http.scaladsl.model.{ ErrorInfo, HttpHeader, MediaTypes, StatusCode,
 import akka.http.scaladsl.model.headers.{ EmptyHeader, RawHeader }
 import akka.http.impl.model.parser.HeaderParser
 import akka.http.impl.model.parser.CharacterClasses._
+import org.parboiled2.CharUtils
 
 /**
  * INTERNAL API
@@ -549,9 +549,7 @@ private[http] object HttpHeaderParser {
   private[parsing] class ModeledHeaderValueParser(headerName: String, maxHeaderValueLength: Int, maxValueCount: Int,
       log: LoggingAdapter, settings: HeaderParser.Settings)
       extends HeaderValueParser(headerName, maxValueCount) {
-    val parser = HeaderParser.lookupParser(headerName, settings).getOrElse(
-      throw new IllegalStateException(s"Missing parser for modeled [$headerName]."))
-
+    val parser = HeaderParser.lookupParser(headerName, settings)
     def apply(hhp: HttpHeaderParser, input: ByteString, valueStart: Int, onIllegalHeader: ErrorInfo => Unit)
         : (HttpHeader, Int) = {
       // TODO: optimize by running the header value parser directly on the input ByteString (rather than an extracted String); seems done?

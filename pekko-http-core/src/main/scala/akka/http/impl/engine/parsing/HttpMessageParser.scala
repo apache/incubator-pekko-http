@@ -10,7 +10,6 @@ import akka.stream.TLSProtocol._
 
 import scala.annotation.tailrec
 import scala.collection.mutable.ListBuffer
-import akka.parboiled2.CharUtils
 import akka.util.ByteString
 import akka.http.impl.model.parser.CharacterClasses
 import akka.http.scaladsl.settings.ParserSettings
@@ -20,6 +19,7 @@ import HttpProtocols._
 import ParserOutput._
 import akka.annotation.InternalApi
 import akka.http.scaladsl.settings.ParserSettings.ConflictingContentTypeHeaderProcessingMode
+import org.parboiled2.CharUtils
 
 /**
  * INTERNAL API

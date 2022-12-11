@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
 
 import akka.http.impl.model.JavaUri;
 import akka.http.impl.model.UriJavaAccessor;
-import akka.parboiled2.ParserInput$;
+import org.parboiled2.ParserInput$;
 
 import java.util.Optional;
 

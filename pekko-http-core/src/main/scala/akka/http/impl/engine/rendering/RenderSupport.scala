@@ -5,7 +5,6 @@
 package akka.http.impl.engine.rendering
 
 import akka.annotation.InternalApi
-import akka.parboiled2.CharUtils
 import akka.stream.{ Attributes, SourceShape }
 import akka.util.ByteString
 import akka.event.LoggingAdapter
@@ -18,6 +17,7 @@ import akka.http.scaladsl.model.ContentTypes._
 import akka.stream.stage.GraphStage
 import akka.stream._
 import akka.stream.scaladsl.{ Flow, Sink, Source }
+import org.parboiled2.CharUtils
 
 /**
  * INTERNAL API

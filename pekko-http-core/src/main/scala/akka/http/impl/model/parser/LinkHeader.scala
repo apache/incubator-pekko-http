@@ -8,9 +8,9 @@ import scala.annotation.tailrec
 import scala.collection.immutable
 import scala.collection.immutable.TreeMap
 
-import akka.parboiled2.Parser
 import akka.http.scaladsl.model.{ IllegalUriException, ParsingException }
 import akka.http.scaladsl.model.headers._
+import org.parboiled2.Parser
 
 private[parser] trait LinkHeader { this: Parser with CommonRules with CommonActions =>
   import CharacterClasses._

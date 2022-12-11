@@ -5,7 +5,7 @@
 package akka.http.impl.model.parser
 
 import akka.http.scaladsl.model.headers._
-import akka.parboiled2._
+import org.parboiled2._
 
 // see grammar at http://tools.ietf.org/html/rfc6455#section-4.3
 private[parser] trait WebSocketHeaders { this: Parser with CommonRules with CommonActions =>

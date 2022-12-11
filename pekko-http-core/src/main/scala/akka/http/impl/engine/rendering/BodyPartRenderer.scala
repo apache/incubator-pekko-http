@@ -4,8 +4,6 @@
 
 package akka.http.impl.engine.rendering
 
-import akka.parboiled2.util.Base64
-
 import scala.collection.immutable
 import akka.event.LoggingAdapter
 import akka.http.scaladsl.model._
@@ -20,6 +18,7 @@ import akka.stream.{ Attributes, FlowShape, Inlet, Outlet }
 import java.util.concurrent.ThreadLocalRandom
 
 import akka.annotation.InternalApi
+import org.parboiled2.util.Base64
 
 /**
  * INTERNAL API

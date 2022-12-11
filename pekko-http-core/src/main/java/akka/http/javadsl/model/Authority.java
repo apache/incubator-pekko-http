@@ -35,7 +35,7 @@ public abstract class Authority {
    */
   public static Authority create(String authority) {
     return akka.http.scaladsl.model.Uri.Authority$.MODULE$.parse(
-      akka.parboiled2.ParserInput$.MODULE$.apply(authority),
+      org.parboiled2.ParserInput$.MODULE$.apply(authority),
       Charset.forName("UTF8"),
       akka.http.scaladsl.model.Uri$ParsingMode$Relaxed$.MODULE$
     );

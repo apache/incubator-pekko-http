@@ -6,10 +6,10 @@ package akka.http.impl.model.parser
 
 import scala.collection.immutable.TreeMap
 
-import akka.parboiled2.Parser
 import akka.http.scaladsl.model.headers._
 import akka.http.scaladsl.model.{ MediaRange, MediaRanges }
 import akka.http.impl.util._
+import org.parboiled2.Parser
 
 private[parser] trait AcceptHeader { this: Parser with CommonRules with CommonActions =>
   import CharacterClasses._

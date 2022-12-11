@@ -6,10 +6,10 @@ package akka.http.scaladsl.model.headers
 
 import scala.collection.immutable
 import scala.util.{ Failure, Success }
-import akka.parboiled2.ParseError
 import akka.http.javadsl.{ model => jm }
 import akka.http.impl.model.parser.HeaderParser
 import akka.http.impl.util._
+import org.parboiled2.ParseError
 
 final case class ProductVersion(product: String = "", version: String = "", comment: String = "")
     extends jm.headers.ProductVersion with ValueRenderable {

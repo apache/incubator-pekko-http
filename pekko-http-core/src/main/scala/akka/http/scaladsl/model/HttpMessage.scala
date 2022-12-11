@@ -19,13 +19,13 @@ import scala.collection.immutable
 import scala.reflect.{ classTag, ClassTag }
 import akka.Done
 import akka.actor.ClassicActorSystemProvider
-import akka.parboiled2.CharUtils
 import akka.util.{ ByteString, HashCode, OptionVal }
 import akka.http.ccompat.{ pre213, since213 }
 import akka.http.impl.util._
 import akka.http.javadsl.{ model => jm }
 import akka.http.scaladsl.util.FastFuture._
 import headers._
+import org.parboiled2.CharUtils
 
 import scala.annotation.tailrec
 import scala.compat.java8.FutureConverters._

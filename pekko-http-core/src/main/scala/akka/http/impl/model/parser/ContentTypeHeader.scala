@@ -7,8 +7,8 @@ package akka.http.impl.model.parser
 import scala.annotation.tailrec
 import scala.collection.immutable.TreeMap
 
-import akka.parboiled2.Parser
 import akka.http.scaladsl.model._
+import org.parboiled2.Parser
 
 private[parser] trait ContentTypeHeader { this: Parser with CommonRules with CommonActions =>
 

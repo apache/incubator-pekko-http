@@ -16,9 +16,9 @@ import akka.util.ConstantFun
 
 import scala.util.control.NonFatal
 import akka.http.impl.util.SingletonException
-import akka.parboiled2._
-import akka.shapeless._
 import akka.http.scaladsl.model._
+import org.parboiled2._
+import org.parboiled2.support.hlist._
 
 /**
  * INTERNAL API.
@@ -108,25 +108,25 @@ private[http] object HeaderParser {
 
   object EmptyCookieException extends SingletonException("Cookie header contained no parsable cookie values.")
 
-  def lookupParser(headerName: String, settings: Settings = DefaultSettings): Option[String => HeaderParser#Result] =
-    dispatch.lookup(headerName).map { runner => (value: String) =>
-      import akka.parboiled2.EOI
-      val v = value + EOI // this makes sure the parser isn't broken even if there's no trailing garbage in this value
-      val parser = new HeaderParser(v, settings)
-      runner(parser) match {
-        case r @ Success(_) if parser.cursor == v.length => r
-        case r @ Success(_) =>
-          Failure(ErrorInfo(
-            "Header parsing error",
-            s"Rule for $headerName accepted trailing garbage. Is the parser missing a trailing EOI?"))
-        case Failure(e) =>
-          Failure(e.copy(summary = e.summary.filterNot(_ == EOI), detail = e.detail.filterNot(_ == EOI)))
-        case RuleNotFound => RuleNotFound
-      }
+  def lookupParser(
+      headerName: String, settings: Settings = DefaultSettings): String => HeaderParser#Result = { (value: String) =>
+    import org.parboiled2.EOI
+    val v = value + EOI
+    val parser = new HeaderParser(v, settings)
+    dispatch(parser, headerName) match {
+      case r @ Success(_) if parser.cursor == v.length => r
+      case Success(_) =>
+        Failure(ErrorInfo(
+          "Header parsing error",
+          s"Rule for $headerName accepted trailing garbage. Is the parser missing a trailing EOI?"))
+      case Failure(e) =>
+        Failure(e.copy(summary = e.summary.filterNot(_ == EOI), detail = e.detail.filterNot(_ == EOI)))
+      case RuleNotFound => RuleNotFound
     }
+  }
 
   def parseFull(headerName: String, value: String, settings: Settings = DefaultSettings): HeaderParser#Result =
-    lookupParser(headerName, settings).map(_(value)).getOrElse(HeaderParser.RuleNotFound)
+    lookupParser(headerName, settings)(value)
 
   val (dispatch, ruleNames) = DynamicRuleDispatch[HeaderParser, HttpHeader :: HNil](
     "accept",

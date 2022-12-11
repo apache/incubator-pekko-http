@@ -8,8 +8,8 @@ import akka.http.impl.model.JavaQuery;
 import akka.http.impl.model.UriJavaAccessor;
 import akka.http.scaladsl.model.*;
 import akka.japi.Pair;
-import akka.parboiled2.CharPredicate;
-import akka.parboiled2.ParserInput$;
+import org.parboiled2.CharPredicate;
+import org.parboiled2.ParserInput$;
 
 import java.nio.charset.Charset;
 import java.util.List;

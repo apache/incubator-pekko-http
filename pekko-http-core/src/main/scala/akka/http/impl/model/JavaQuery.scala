@@ -15,10 +15,10 @@ import akka.http.javadsl.{ model => jm }
 import akka.http.scaladsl.model.UriRendering
 import akka.http.scaladsl.{ model => sm }
 import akka.japi.Pair
-import akka.parboiled2.CharPredicate
 
 import scala.collection.JavaConverters._
 import akka.http.impl.util.JavaMapping.Implicits._
+import org.parboiled2.CharPredicate
 
 /** INTERNAL API */
 @InternalApi
