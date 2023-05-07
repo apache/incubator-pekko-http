@@ -27,7 +27,6 @@ import pekko.http.impl.util.JavaMapping.Implicits._
 import scala.annotation.varargs
 import scala.collection.JavaConverters._
 import pekko.http.javadsl.model.{ HttpMethod, MediaType, StatusCode, Uri }
-import scala.annotation.nowarn
 import com.typesafe.config.Config
 
 /**
@@ -138,7 +137,6 @@ object ParserSettings extends SettingsCompanion[ParserSettings] {
    */
   @Deprecated
   @deprecated("Use forServer or forClient instead", since = "Akka HTTP 10.2.0")
-  @nowarn("msg=create overrides concrete, non-deprecated symbol")
   override def create(system: ActorSystem): ParserSettings = create(system.settings.config)
 
   def forServer(system: ClassicActorSystemProvider): ParserSettings =

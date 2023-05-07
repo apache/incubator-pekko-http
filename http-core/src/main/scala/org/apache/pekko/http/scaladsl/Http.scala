@@ -189,7 +189,6 @@ class HttpExt @InternalStableApi /* constructor signature is hardcoded in Teleme
   @deprecated(
     "Use Http().newServerAt(...)...connectionSource() to create a source that can be materialized to a binding.",
     since = "10.2.0")
-  @nowarn("msg=deprecated")
   def bind(interface: String, port: Int = DefaultPortForProtocol,
       connectionContext: ConnectionContext = defaultServerHttpContext,
       settings: ServerSettings = ServerSettings(system),
@@ -238,7 +237,6 @@ class HttpExt @InternalStableApi /* constructor signature is hardcoded in Teleme
    * use the `pekko.http.server` config section or pass in a [[pekko.http.scaladsl.settings.ServerSettings]] explicitly.
    */
   @deprecated("Use Http().newServerAt(...)...bindFlow() to create server bindings.", since = "10.2.0")
-  @nowarn("msg=deprecated")
   def bindAndHandle(
       handler: Flow[HttpRequest, HttpResponse, Any],
       interface: String, port: Int = DefaultPortForProtocol,
@@ -320,7 +318,6 @@ class HttpExt @InternalStableApi /* constructor signature is hardcoded in Teleme
    * use the `pekko.http.server` config section or pass in a [[pekko.http.scaladsl.settings.ServerSettings]] explicitly.
    */
   @deprecated("Use Http().newServerAt(...)...bindSync() to create server bindings.", since = "10.2.0")
-  @nowarn("msg=deprecated")
   def bindAndHandleSync(
       handler: HttpRequest => HttpResponse,
       interface: String, port: Int = DefaultPortForProtocol,
@@ -349,7 +346,6 @@ class HttpExt @InternalStableApi /* constructor signature is hardcoded in Teleme
    * Any other value for `parallelism` overrides the setting.
    */
   @deprecated("Use Http().newServerAt(...)...bind() to create server bindings.", since = "10.2.0")
-  @nowarn("msg=deprecated")
   def bindAndHandleAsync(
       handler: HttpRequest => Future[HttpResponse],
       interface: String, port: Int = DefaultPortForProtocol,
@@ -1133,7 +1129,7 @@ object Http extends ExtensionId[HttpExt] with ExtensionIdProvider {
   def apply()(implicit system: ClassicActorSystemProvider): HttpExt = super.apply(system)
   override def apply(system: ActorSystem): HttpExt = super.apply(system)
 
-  def lookup() = Http
+  def lookup = Http
 
   def createExtension(system: ExtendedActorSystem): HttpExt =
     new HttpExt(system.settings.config.getConfig("pekko.http"))(system)
